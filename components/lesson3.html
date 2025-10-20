@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson1</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <body>
+    <div class="wrapper">
+      <header class="header">
+      </header>
+      <main class="page">
+        <section class="page__lesson lesson-page">
+          <div class="lesson-page__container">
+            <div class="lesson-page__content">
+              <div class="lesson-page__questions">
+                <h2 class="lesson-page__title title">Урок 1</h2>
+                <h3 class="item__title title">Задачі</h3>
+                <div class="lesson-page__items item">
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача 1</span><br>У localStorage зберігається
+                      об’єкт у форматі JSON з ключем «data». Проаналізувати значення поля «field2». Якщо рядок – то
+                      вивести довжину, якщо число – то визначити чи є парним.</p>
+                    <h1 class="item__title title">Перевірка LocalStorage</h1>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('1.1_1')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача 2.</span><br>У localStorage зберігається об’єкт у форматі JSON з ключем «data». Вивести на екран усі поля та їх значення.</p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('1.1_2')">Відповідь</button>
+                    </div>
+                  </div>
+                  <!-- <div class="item__body">
+									<p class="item__text"><span class="item__label"></span><br></p>
+									<div class="item__action">
+										<button class="item__btn" onclick="showQuestion(1.1_)">Відповідь</button>
+									</div>
+								</div> -->
+                  <!-- <div class="item__body">
+									<p class="item__text"><span class="item__label"></span><br></p>
+									<div class="item__action">
+										<button class="item__btn" onclick="showQuestion(1.1_)">Відповідь</button>
+									</div>
+								</div> -->
+                  <!-- <div class="item__body">
+									<p class="item__text"><span class="item__label"></span><br></p>
+									<div class="item__action">
+										<button class="item__btn" onclick="showQuestion(1.1_)">Відповідь</button>
+									</div>
+								</div> -->
+                </div>
+                <h3 class="item__title title">Додаткові завдання</h3>
+                <div class="lesson-page__add item">
+
+                  <!-- <div class="item__body">
+									<p class="item__text"><span class="item__label"></span><br></p>
+									<div class="item__action">
+										<button class="item__btn" onclick="showQuestion(1.2_)">Відповідь</button>
+									</div>
+								</div> -->
+                </div>
+                <h3 class="item__title title">Задачі виконані на уроці</h3>
+                <div class="lesson-page__practice item">
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача (Test) </span><br></p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('1.3_1')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача</span><br>Вводиться ім'я користувача. (Гість
+                      якщо не введе). Привітати користувача</p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('1.3_2')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text">
+                      <span class="item__label">Задача 2</span><br>
+                      Створити змінні для збереження інформації про книгу: title (рядок), pages (число), isPublished
+                      (булеве).
+                    </p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('1.3_3')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text">
+                      <span class="item__label">Задача 3</span><br>
+                      Додайте типи даних
+                    </p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('1.3_4')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача 4</span><br>Обчисти периметр трикутника</p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('1.3_5')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text">
+                      <span class="item__label">Задача</span><br>
+                      Величина випадковим чином може отримувати значенян рядка, або числа, або об’єкта
+                    </p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('1.3_6')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text">
+                      <span class="item__label">Задача</span><br>
+                      Користувач вводить ім’я. Якщо відмовиться, то заборонити доступ
+                    </p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('1.3_7')">Відповідь</button>
+                    </div>
+                  </div>
+                  <!-- <div class="item__body">
+									<p class="item__text"><span class="item__label">Задача</span><br></p>
+									<div class="item__action">
+										<button class="item__btn" onclick="showQuestion(1.3_)">Відповідь</button>
+									</div>
+								</div> -->
+
+                  <!-- <div class="item__body">
+									<p class="item__text"><span class="item__label">Задача</span><br></p>
+									<div class="item__action">
+										<button class="item__btn" onclick="showQuestion(1.3_)">Відповідь</button>
+									</div>
+								</div> -->
+                </div>
+              </div>
+              <div id="question-content" class="lessons-page__ansver">
+                <a href="../index.html">Повернутися на головну сторінку</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+      </footer>
+    </div>
+    <script src="../dist/lesson1/lesson1.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 2</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <body>
+    <div class="wrapper">
+      <header class="header">
+      </header>
+      <main class="page">
+        <section class="page__lesson lesson-page">
+          <div class="lesson-page__container">
+            <div class="lesson-page__content">
+              <div class="lesson-page__questions">
+                <h2 class="lesson-page__title title">Урок 2 </h2>
+                <h3 class="item__title title">Задачі</h3>
+                <div class="lesson-page__items item">
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача 1.</span><br>Вводиться перший номер місяця
+                      якоїсь пори року (3,6,9,12). Визначити пору року. Передбачити перевірку і генерувати помилку якщо
+                      некоректний місяць (1-12) і генерувати помилку якщо це не перший місяць пори року. Використати
+                      never.</p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('2.1_1')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача 2.</span><br> Створити функцію, яка дозволяє
+                      знайти або останню цифру числа, або останній символ числа.
+                    </p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('2.1_2')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача 3.</span><br>Вводиться номер місяця або назва
+                      місяця. Створити функцію, яка повинна повертати номер пори року (1-4) якщо передаємо число, або
+                      назву пори року, якщо було введено назву місяця. Використати перевантаження функцій.</p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('2.1_3')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача 4. </span><br>Випадковим чином генерується
+                      масив номерів робочих днів, або назв вихідних, або назв святкових днів. Підрахувати чого було
+                      більше: святкових чи вихідних.</p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('2.1_4')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача 5.</span><br> Дано набір налаштувань
+                      (ключ-значення(enabled/disabled)). Вивести ті, які є увімкненими</p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('2.1_5')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача 7.</span><br>Згенерувати масив нагород
+                      (золота, срібна, бронзова медалі та грамота). Підрахувати кількість кожної з нагород. Використати
+                      enum. Можете і never якось застосувати</p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('2.1_6')">Відповідь</button>
+                    </div>
+                  </div>
+
+                </div>
+                <!-- <h3 class="item__title title">Додаткові завдання</h3> -->
+                <!-- <div class="lesson-page__add item">
+
+                  <!-- <div class="item__body">
+									<p class="item__text"><span class="item__label"></span><br></p>
+									<div class="item__action">
+										<button class="item__btn" onclick="showQuestion(1.2_)">Відповідь</button>
+									</div>
+								</div> 
+                </div> -->
+                <h3 class="item__title title">Задачі виконані на уроці</h3>
+                <div class="lesson-page__practice item">
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача</span><br>Створити функцію, яка виводить у
+                      консоль потончну дату</p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('2.3_1')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача</span><br>З клавіатури номер робочого дня.
+                      Ввисти скільки залишилось до кінця тижня. Передбчати генерування
+                      виглючних ситуацій якщо номер дня некоректний і коли номер дня коректний, але це не є робочим днем
+                      (використати функцію з never для генерування виключиних ситуацій)</p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('2.3_2')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача</span><br>З клавіатури вводиться пора року.
+                      Вивести рекомендований одяг.</p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('2.3_3')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача</span><br>Передається або номер дня, або
+                      назву дня на англійькій. Треба сказати чи вихідний чи робочий.</p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('2.3_4')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача</span><br>Передається або номер дня, або
+                      назву дня на англійькій. Треба повертати номер наступного дня (якщо число), або першу літеру (якщо
+                      назва)</p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('2.3_5')">Відповідь</button>
+                    </div>
+                  </div>
+                </div>
+                <h4 class="item__title title">Масиви</h4>
+                <div class="lesson-page__practice item">
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача</span><br>Планувальник відпусток. Дано масив
+                      імен водіїв і масив номерів, коли можна йти у відпустку. Потрібно випадково вибрати ім’я водія і
+                      випадково вибрати номер місяця для відпустки.</p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('2.3_6')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача</span><br>Сформувати масив значень ігрового
+                      барабана. Це або виграшна сума, або «Пауза», «Банкрот», «Супер приз»</p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('2.3_7')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача</span><br> Сформувати двовимірний масив (5*5)
+                      ігрового поля. Усі елементи нулі, або 1-корабель (4 штуки), або ‘block’- земля (5 штук)</p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('2.3_8')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача (ДЗ 6)</span><br>Дано масив маркерів на
+                      картів [lat,
+                      long, city]. Визначити найближче місто до вказаних координат</p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('2.3_9')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача</span><br>Потрібно ввести стать студента
+                      ("male", "female"). У залежносі від цього додати Mr, Ms.
+                    </p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('2.3_11')">Відповідь</button>
+                    </div>
+                  </div>
+                  <div class="item__body">
+                    <p class="item__text"><span class="item__label">Задача</span><br>Вводиться сума грошей і позначення
+                      валюти. Потрібно перевести кількість гривень у кількість обраної валюти ("USD" , "EUR" , "UAH")
+                    </p>
+                    <div class="item__action">
+                      <button class="item__btn" onclick="showQuestion('2.3_12')">Відповідь</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="question-content" class="lessons-page__ansver">
+              <a href="../index.html">Повернутися на головну сторінку</a>
+            </div>
+          </div>
+    </div>
+    </section>
+    </main>
+    <footer class="footer">
+    </footer>
+    </div>
+    <script src="../dist/lesson2/lesson2.js"></script>
+  </body>
+
+</html>

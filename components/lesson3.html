@@ -1,155 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head>.
   <meta charset="UTF-8">
-  <title>Lesson1</title>
-  <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/style.css">
+  <title>Lesson 3</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 
+
 <body>
-
-  <body>
-    <div class="wrapper">
-      <header class="header">
-      </header>
-      <main class="page">
-        <section class="page__lesson lesson-page">
-          <div class="lesson-page__container">
-            <div class="lesson-page__content">
-              <div class="lesson-page__questions">
-                <h2 class="lesson-page__title title">Урок 1</h2>
-                <h3 class="item__title title">Задачі</h3>
-                <div class="lesson-page__items item">
-                  <div class="item__body">
-                    <p class="item__text"><span class="item__label">Задача 1</span><br>У localStorage зберігається
-                      об’єкт у форматі JSON з ключем «data». Проаналізувати значення поля «field2». Якщо рядок – то
-                      вивести довжину, якщо число – то визначити чи є парним.</p>
-                    <h1 class="item__title title">Перевірка LocalStorage</h1>
-                    <div class="item__action">
-                      <button class="item__btn" onclick="showQuestion('1.1_1')">Відповідь</button>
-                    </div>
+  <div class="wrapper">
+    <header class="header">
+    </header>
+    <main class="page">
+      <section class="page__lesson lesson-page">
+        <div class="lesson-page__container">
+          <div class="lesson-page__content">
+            <div class="lesson-page__questions">
+              <h2 class="lesson-page__title title">Урок 3</h2>
+              <h3 class="item__title title">Задачі</h3>
+              <div class="lesson-page__items item">
+                <div class="item__body">
+                  <p class="item__text"><span class="item__label">Задача 1</span><br>Задача 1. Створити два інтерфейс
+                    студента (піб, курс, факультет). На основі цього інтерфейсу створити інтерфейс старости (додати поле
+                    з номером групи)</p>
+                  <div class="item__action">
+                    <button class="item__btn" onclick="showQuestion('3.1_1')">Відповідь</button>
                   </div>
-                  <div class="item__body">
-                    <p class="item__text"><span class="item__label">Задача 2.</span><br>У localStorage зберігається об’єкт у форматі JSON з ключем «data». Вивести на екран усі поля та їх значення.</p>
-                    <div class="item__action">
-                      <button class="item__btn" onclick="showQuestion('1.1_2')">Відповідь</button>
-                    </div>
-                  </div>
-                  <!-- <div class="item__body">
-									<p class="item__text"><span class="item__label"></span><br></p>
-									<div class="item__action">
-										<button class="item__btn" onclick="showQuestion(1.1_)">Відповідь</button>
-									</div>
-								</div> -->
-                  <!-- <div class="item__body">
-									<p class="item__text"><span class="item__label"></span><br></p>
-									<div class="item__action">
-										<button class="item__btn" onclick="showQuestion(1.1_)">Відповідь</button>
-									</div>
-								</div> -->
-                  <!-- <div class="item__body">
-									<p class="item__text"><span class="item__label"></span><br></p>
-									<div class="item__action">
-										<button class="item__btn" onclick="showQuestion(1.1_)">Відповідь</button>
-									</div>
-								</div> -->
                 </div>
-                <h3 class="item__title title">Додаткові завдання</h3>
-                <div class="lesson-page__add item">
+                <div class="item__body">
+                  <p class="item__text"><span class="item__label">Задача 2</span><br>Створіть union-тип для трьох типів
+                    : car (модель, власник), bus (компанія, кількість місць), airplane (швидкість, тип палива). Створити
+                    функцію, яка приймає параметр цього типу і виводить повну інформацію про об'єкт.</p>
 
-                  <!-- <div class="item__body">
+                  <div class="item__action">
+                    <button class="item__btn" onclick="showQuestion('3.1_2')">Відповідь</button>
+                  </div>
+                </div>
+                <div class="item__body">
+                  <p class="item__text"><span class="item__label">Задача 3</span><br>Задача “Події календаря”. Події можуть бути Meeting (має participants), Deadline (має dueDate), Reminder (має note). Кожна подія може бути mandatory або optional. Створити тип CalendarEvent, який об’єднує тип події та її важливість, використовуючи перетини та об’єднання типів.</p>
+                  <div class="item__action">
+                    <button class="item__btn" onclick="showQuestion('3.1_3')">Відповідь</button>
+                  </div>
+                </div>
+                <!-- <div class="item__body">
+                  <p class="item__text"><span class="item__label">Задача 1</span><br></p>
+                    <div class="item__action">
+                    <button class="item__btn" onclick="showQuestion('3.1_1')">Відповідь</button>
+                  </div>
+                </div> -->
+              </div>
+              <!-- <h3 class="item__title title">Додаткові завдання</h3> -->
+              <!-- <div class="lesson-page__add item">
+
+                   <div class="item__body">
 									<p class="item__text"><span class="item__label"></span><br></p>
 									<div class="item__action">
 										<button class="item__btn" onclick="showQuestion(1.2_)">Відповідь</button>
 									</div>
-								</div> -->
+								</div> 
+                </div>-->
+              <h3 class="item__title title">Задачі виконані на уроці</h3>
+              <div class="lesson-page__practice item">
+                <div class="item__body">
+                  <p class="item__text"><span class="item__label">Задача 1</span><br>Модель автомобіля. Опишіть Car з
+                    властивостями: brand, model, year, electric (boolean).</p>
+                  <div class="item__action">
+                    <button class="item__btn" onclick="showQuestion('3.3_1')">Відповідь</button>
+                  </div>
                 </div>
-                <h3 class="item__title title">Задачі виконані на уроці</h3>
-                <div class="lesson-page__practice item">
-                  <div class="item__body">
-                    <p class="item__text"><span class="item__label">Задача (Test) </span><br></p>
-                    <div class="item__action">
-                      <button class="item__btn" onclick="showQuestion('1.3_1')">Відповідь</button>
-                    </div>
+                <div class="item__body">
+                  <p class="item__text"><span class="item__label">Задача</span><br>Описати функцію, у які this - це
+                    об"єкт з властивістю-minValue. У функцію передають якесь значення і функція визначає, чи є це
+                    значенням вище minValue</p>
+                  <div class="item__action">
+                    <button class="item__btn" onclick="showQuestion('3.3_2')">Відповідь</button>
                   </div>
-                  <div class="item__body">
-                    <p class="item__text"><span class="item__label">Задача</span><br>Вводиться ім'я користувача. (Гість
-                      якщо не введе). Привітати користувача</p>
-                    <div class="item__action">
-                      <button class="item__btn" onclick="showQuestion('1.3_2')">Відповідь</button>
-                    </div>
+                </div>
+                <div class="item__body">
+                  <p class="item__text"><span class="item__label">Задача</span><br>Розробити об’єкт Range (діапазон).
+                    Збрігається мінімальне і максимальне значення. Та методи визначення чи належить якесь число цьому
+                    діапазону та мето генерування випакдового число з цього діапазону.</p>
+                  <div class="item__action">
+                    <button class="item__btn" onclick="showQuestion('3.3_3')">Відповідь</button>
                   </div>
-                  <div class="item__body">
-                    <p class="item__text">
-                      <span class="item__label">Задача 2</span><br>
-                      Створити змінні для збереження інформації про книгу: title (рядок), pages (число), isPublished
-                      (булеве).
-                    </p>
-                    <div class="item__action">
-                      <button class="item__btn" onclick="showQuestion('1.3_3')">Відповідь</button>
-                    </div>
+                </div>
+                <div class="item__body">
+                  <p class="item__text"><span class="item__label">Задача</span><br>Створіть два окремих оголошення
+                    інтерфейсу Book.у першому - title: stringу другому - author: string. Перевірте, що після злиття
+                    можна створити об’єкт із обома властивостями.</p>
+                  <div class="item__action">
+                    <button class="item__btn" onclick="showQuestion('3.3_4')">Відповідь</button>
                   </div>
-                  <div class="item__body">
-                    <p class="item__text">
-                      <span class="item__label">Задача 3</span><br>
-                      Додайте типи даних
-                    </p>
-                    <div class="item__action">
-                      <button class="item__btn" onclick="showQuestion('1.3_4')">Відповідь</button>
-                    </div>
+                </div>
+                <div class="item__body">
+                  <p class="item__text"><span class="item__label">Задача</span><br>Розширення глобального Window.
+                    Додайте у глобальний об’єкт Window властивість appName: string.Потім у коді виведіть її в консоль.
+                  </p>
+                  <div class="item__action">
+                    <button class="item__btn" onclick="showQuestion('3.3_5')">Відповідь</button>
                   </div>
-                  <div class="item__body">
-                    <p class="item__text"><span class="item__label">Задача 4</span><br>Обчисти периметр трикутника</p>
-                    <div class="item__action">
-                      <button class="item__btn" onclick="showQuestion('1.3_5')">Відповідь</button>
-                    </div>
+                </div>
+                <div class="item__body">
+                  <p class="item__text"><span class="item__label">Задача</span><br>Objects extends</p>
+                  <div class="item__action">
+                    <button class="item__btn" onclick="showQuestion('3.3_6')">Відповідь</button>
                   </div>
-                  <div class="item__body">
-                    <p class="item__text">
-                      <span class="item__label">Задача</span><br>
-                      Величина випадковим чином може отримувати значенян рядка, або числа, або об’єкта
-                    </p>
-                    <div class="item__action">
-                      <button class="item__btn" onclick="showQuestion('1.3_6')">Відповідь</button>
-                    </div>
+                </div>
+                <div class="item__body">
+                  <p class="item__text"><span class="item__label">Задача</span><br>Розширення об’єкта. Опишіть базовий
+                    Product (назва, ціна) і розширте його FoodProduct з додатковим полем expirationDate.</p>
+                  <div class="item__action">
+                    <button class="item__btn" onclick="showQuestion('3.3_7')">Відповідь</button>
                   </div>
-                  <div class="item__body">
-                    <p class="item__text">
-                      <span class="item__label">Задача</span><br>
-                      Користувач вводить ім’я. Якщо відмовиться, то заборонити доступ
-                    </p>
-                    <div class="item__action">
-                      <button class="item__btn" onclick="showQuestion('1.3_7')">Відповідь</button>
-                    </div>
+                </div>
+                <div class="item__body">
+                  <p class="item__text"><span class="item__label">Задача</span><br>Створіть тип Point2D з полями x і y.
+                    Потім зробіть тип Point3D, що розширює Point2D.</p>
+                  <div class="item__action">
+                    <button class="item__btn" onclick="showQuestion('3.3_8')">Відповідь</button>
                   </div>
-                  <!-- <div class="item__body">
+                </div>
+                <div class="item__body">
+                  <p class="item__text"><span class="item__label">Задача</span><br>Створіть union-тип Shape для трьох
+                    фігур:circle (радіус)square (довжина сторони)rectangle (ширина й висота). Напишіть функцію
+                    getArea(shape: Shape): number, яка обчислює площу.
+                  </p>
+                  <div class="item__action">
+                    <button class="item__btn" onclick="showQuestion('3.3_9')">Відповідь</button>
+                  </div>
+                </div>
+                <div class="item__body">
+                  <p class="item__text"><span class="item__label">Задача</span><br>Опишіть форму реєстрації з полями id
+                    (тільки для читання), name, email, а також опціональним phone</p>
+                  <div class="item__action">
+                    <button class="item__btn" onclick="showQuestion('3.3_10')">Відповідь</button>
+                  </div>
+                </div>
+                <div class="item__body">
+                  <p class="item__text"><span class="item__label">Задача</span><br>Задача “Співробітники компанії”
+                    Співробітники мають name та id. Є три категорії: Manager (має department), Engineer (має skills),
+                    Intern (має mentor).
+                  </p>
+                  <div class="item__action">
+                    <button class="item__btn" onclick="showQuestion('3.3_11')">Відповідь</button>
+                  </div>
+                </div>
+                <!-- <div class="item__body">
 									<p class="item__text"><span class="item__label">Задача</span><br></p>
 									<div class="item__action">
-										<button class="item__btn" onclick="showQuestion(1.3_)">Відповідь</button>
+										<button class="item__btn" onclick="showQuestion('3.3_')">Відповідь</button>
 									</div>
 								</div> -->
-
-                  <!-- <div class="item__body">
-									<p class="item__text"><span class="item__label">Задача</span><br></p>
-									<div class="item__action">
-										<button class="item__btn" onclick="showQuestion(1.3_)">Відповідь</button>
-									</div>
-								</div> -->
-                </div>
-              </div>
-              <div id="question-content" class="lessons-page__ansver">
-                <a href="../index.html">Повернутися на головну сторінку</a>
               </div>
             </div>
+            <div id="question-content" class="lessons-page__ansver">
+              <a href="../index.html">Повернутися на головну сторінку</a>
+            </div>
           </div>
-        </section>
-      </main>
-      <footer class="footer">
-      </footer>
-    </div>
-    <script src="../dist/lesson1/lesson1.js"></script>
-  </body>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+    </footer>
+  </div>
+  <script src="../dist/lesson3/lesson3.js"></script>
+</body>
 
 </html>

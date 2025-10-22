@@ -4,147 +4,86 @@ const questions = [
         id: '1.1_1',
         question: 'Задача 1. У localStorage зберігається об’єкт у форматі JSON з ключем «data». Проаналізувати значення поля «field2». Якщо рядок – то вивести довжину, якщо число – то визначити чи є парним.',
         checkFunction: function () {
-            function saveData() {
-                const obj = {
-                    data: [
-                        {
-                            id: 1,
-                            name: 'Олег',
-                            grade: 9,
-                            attendance: 95,
-                            date: '2025-10-03',
-                        },
-                        {
-                            id: 2,
-                            name: 'Марія',
-                            grade: 7,
-                            attendance: 88,
-                            date: '2025-10-03',
-                        },
-                        {
-                            id: 3,
-                            name: 'Андрій',
-                            grade: 10,
-                            attendance: 100,
-                            date: '2025-10-03',
-                        },
-                        {
-                            id: 4,
-                            name: 'Ірина',
-                            grade: 8,
-                            attendance: 90,
-                            date: '2025-10-03',
-                        },
-                        {
-                            id: 5,
-                            name: 'Владислав',
-                            grade: 6,
-                            attendance: 75,
-                            date: '2025-10-03',
-                        },
-                    ],
-                };
-                localStorage.setItem('data', JSON.stringify(obj));
-                console.log('Данні збережено');
-                alert('Данні збережено');
-            }
-            function loadRaw() {
-                const raw = localStorage.getItem('data');
-                if (!raw) {
-                    console.log('Данні відсутні');
-                    return null;
+            const demoData = {
+                field1: 'Test',
+                field2: Math.random() > 0.5 ? 'Hello World' : Math.floor(Math.random() * 100),
+            };
+            localStorage.setItem('data', JSON.stringify(demoData));
+            const raw = localStorage.getItem('data');
+            const parsed = raw ? JSON.parse(raw) : null;
+            function analyzeField2(value) {
+                if (typeof value === 'string') {
+                    return `Поле field2 є рядком. Його довжина: ${value.length}`;
                 }
-                return raw;
-            }
-            function parseJson(raw) {
-                let saved;
-                try {
-                    saved = JSON.parse(raw);
-                }
-                catch (error) {
-                    console.error('Помилка парсингу JSON:', error);
-                    return null;
-                }
-                return saved;
-            }
-            function validateStructure(obj) {
-                return !!obj && typeof obj === 'object' && 'data' in obj;
-            }
-            function getSecondValue(wrapper) {
-                wrapper.data.map((student) => {
-                    const keys = Object.keys(student);
-                    const secondKey = keys[1];
-                    const value = student[secondKey];
-                    if (typeof value === 'string') {
-                        console.log(`Рядок: ${value}, довжина рядка: ${value.length}`);
-                        document.write(`<div>${`Рядок 2: ${value}, довжина рядка: ${value.length}`}</div>`);
-                    }
-                    else if (typeof value === 'number') {
-                        console.log(`Число: ${value}, парність: ${value % 2 === 0}`);
-                        document.write(`<div>${`Число: ${value}, парність: ${value % 2 === 0}`}</div>`);
-                    }
-                    return value;
-                });
-                document.write(`<div><a href="../components/lesson1.html">Повернутися до уроку</a></div>`);
-            }
-            saveData();
-            const raw = loadRaw();
-            if (raw !== null) {
-                const dataObj = parseJson(raw);
-                console.log('Збережені данні:', dataObj);
-                alert('Подивись консоль (F12), там дані з localStorage');
-                if (validateStructure(dataObj)) {
-                    getSecondValue(dataObj);
+                else if (typeof value === 'number') {
+                    const even = value % 2 === 0 ? 'парне' : 'непарне';
+                    return `Поле field2 є числом (${value}) і воно ${even})`;
                 }
                 else {
-                    console.error('Структура даних не відповідає очікуваній DataWrapper');
+                    return 'Поле Field2 має невідомий тип';
                 }
             }
+            const message = parsed && 'field2' in parsed
+                ? analyzeField2(parsed.field2)
+                : 'Поле field2 відсутнє або дані некоректні.';
+            console.log(message);
+            document.write(`
+      <div class="task-result">
+        <h3>Результат аналізу поля "field2"</h3>
+        <pre>${JSON.stringify(parsed, null, 2)}</pre>
+        <p>${message}</p>
+        <a href="../components/lesson1.html">Повернутися до уроку</a>
+      </div>
+    `);
         },
     },
     {
         id: '1.1_2',
         question: 'Задача 2. У localStorage зберігається об’єкт у форматі JSON з ключем «data». Вивести на екран усі поля та їх значення.',
         checkFunction: function () {
-            function saveData() {
-                const obj = {
-                    data: [
-                        { id: 1, name: 'Анна', age: 23, score: 87, active: true },
-                        { id: 2, name: 'Петро', age: 29, score: 91, active: false },
-                        { id: 3, name: 'Ігор', age: 31, score: 76, active: true },
-                        { id: 4, name: 'Марія', age: 27, score: 84, active: true },
-                        { id: 5, name: 'Олена', age: 25, score: 95, active: false },
-                    ],
-                };
-                localStorage.setItem('data', JSON.stringify(obj));
-                console.log('Данні збережено');
-                alert('Данні збережено');
+            const students = [
+                { id: 1, name: 'Анна', age: 23, score: 87, active: true },
+                { id: 2, name: 'Петро', age: 29, score: 91, active: false },
+                { id: 3, name: 'Ігор', age: 31, score: 76, active: true },
+                { id: 4, name: 'Марія', age: 27, score: 84, active: true },
+                { id: 5, name: 'Олена', age: 25, score: 95, active: false },
+            ];
+            localStorage.setItem('data', JSON.stringify(students));
+            const raw = localStorage.getItem('data');
+            const parsed = raw ? JSON.parse(raw) : null;
+            function showAllFiels(data) {
+                if (Array.isArray(data)) {
+                    const headers = Object.keys(data[0]);
+                    const rows = data
+                        .map((obj) => `
+              <tr>${headers.map((key) => `<td>${obj[key]}</td>`).join('')}</tr>,
+                    `)
+                        .join('');
+                    return `
+          <table border="1" cellpadding="5" style="border-collapse: collapse;">
+            <thead><tr>${headers.map((h) => `<th>${h}</th>`).join('')}</tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+        `;
+                }
+                else if (data && typeof data === 'object') {
+                    return Object.entries(data)
+                        .map(([key, value]) => `<p><b>${key}</b>: ${value}</p>`)
+                        .join('');
+                }
+                else {
+                    return '<p>Дані відсутні або мають неправильний формат.</p>';
+                }
             }
-            saveData();
-            let raw = localStorage.getItem('data');
-            if (!raw) {
-                console.log('Данні відсутні');
-                return;
-            }
-            let parsed;
-            try {
-                parsed = JSON.parse(raw);
-            }
-            catch (error) {
-                console.log('Помилка парсингу JSON', error);
-                return;
-            }
-            const items = parsed.data;
-            if (!Array.isArray(items)) {
-                console.log('Ключ "data" не містить масив');
-                return;
-            }
-            items.forEach((obj) => {
-                console.log(`Відомості про ${obj.name}:`);
-                console.log(JSON.stringify(obj, null, 2));
-                document.write(`<div>Відомості про ${obj.name}: ${JSON.stringify(obj, null, 2)}</div>`);
-            });
-            document.write(`<div><a href="../components/lesson1.html">Повернутися до уроку</a></div>`);
+            const output = showAllFiels(parsed);
+            document.write(`
+      <div class="task-result">
+        <h3>Виведення даних з localStorage</h3>
+        <pre>${JSON.stringify(parsed, null, 2)}</pre>
+        ${output}
+        <a href="../components/lesson1.html">Повернутися до уроку</a>
+      </div>
+    `);
         },
     },
     {
@@ -271,7 +210,9 @@ const questions = [
             const USD = 41.55;
             const EUR = 48.65;
             let amount = parseFloat((_a = prompt('Введіть суму грошей')) !== null && _a !== void 0 ? _a : '0');
-            let currency = ((_b = prompt('Введіть валюту (UAH, USD, EUR)')) !== null && _b !== void 0 ? _b : '').trim().toUpperCase();
+            let currency = ((_b = prompt('Введіть валюту (UAH, USD, EUR)')) !== null && _b !== void 0 ? _b : '')
+                .trim()
+                .toUpperCase();
             let resultUs = '';
             let resultEur = '';
             switch (currency) {

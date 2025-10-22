@@ -70,18 +70,240 @@ const questions = [
     },
     {
         id: '3.1_3',
-        question: 'Задача 3. Задача “Події календаря”. Події можуть бути Meeting (має participants), Deadline (має dueDate), Reminder (має note). Кожна подія може бути mandatory або optional. Створити тип CalendarEvent, який об’єднує тип події та її важливість, використовуючи перетини та об’єднання типів.',
+        question: 'Задача 3. Задача “Calendar events”. Події можуть бути Meeting (має participants), Deadline (має dueDate), Reminder (має note). Кожна подія може бути mandatory або optional. Створити тип CalendarEvent, який об’єднує тип події та її важливість, використовуючи перетини та об’єднання типів.',
         checkFunction: function () {
+            var _a;
+            const eventType = (_a = prompt('Оберіть тип події: meeting / deadline / reminder')) === null || _a === void 0 ? void 0 : _a.toLowerCase();
+            let eventData;
+            if (eventType === 'meeting') {
+                const participants = prompt('Введіть учасників (через кому):') || 'Невідомо';
+                eventData = { participants };
+            }
+            else if (eventType === 'deadline') {
+                const dueDate = prompt('Введіть кінцеву дату:') || 'Невідомо';
+                eventData = { dueDate };
+            }
+            else if (eventType === 'reminder') {
+                const note = prompt('Bвеідть нотатку:') || 'Без нотатки';
+                eventData = { note };
+            }
+            else {
+                alert('Невідомий тип події. Спробуйте ще раз.');
+                return;
+            }
+            const importanceChoice = prompt('Подія є обовязковою? (yes / no)');
+            const importance = (importanceChoice === null || importanceChoice === void 0 ? void 0 : importanceChoice.toLowerCase()) === 'Yes' ? { mandatory: true } : { optional: true };
+            const calendarEvent = Object.assign(Object.assign({}, eventData), importance);
+            let output = `<h3>Створено подію:</h3>`;
+            if ('participants' in calendarEvent)
+                output += `<p><b>Тип:</b> Meeting<br><b>Учасники:</b> ${calendarEvent.participants}</p>`;
+            else if ('dueDate' in calendarEvent)
+                output += `<p><b>Тип:</b> Deadline<br><b>Термін:</b> ${calendarEvent.dueDate}</p>`;
+            else if ('note' in calendarEvent)
+                output += `<p><b>Тип:</b> Reminder<br><b>Нотатка:</b> ${calendarEvent.note}</p>`;
+            output += `<p><b>Важливість:</b> ${calendarEvent.mandatory ? 'Обов’язкова' : 'Необов’язкова'}</p>`;
+            document.write(`
+      <div class="event-card">
+        ${output}
+        <div><a href="../components/lesson3.html">Повернутися до уроку</a></div>
+      </div>
+    `);
+        },
+    },
+    {
+        id: '3.1_4',
+        question: 'Задача 4. Є продукти: Book (має author), Electronics (має warranty), Clothes (має size). Продукти можуть бути onSale або regularPrice. Створити тип ShopProduct, який об’єднує тип продукту та його статус, використовуючи & і |.',
+        checkFunction: function () {
+            var _a, _b;
+            const typeChoice = (_a = prompt('Оберіть тип продукту: book / electronics / clothes')) === null || _a === void 0 ? void 0 : _a.toLowerCase();
+            let productData;
+            if (typeChoice === 'book') {
+                const author = prompt('Введіть автора книги:') || 'Невідомий автор';
+                productData = { author, price: parseFloat(prompt('Введіть ціну книги:') || '0') };
+            }
+            else if (typeChoice === 'electronics') {
+                const warranty = prompt('Введіть гарантію:') || 'Без гарантії';
+                productData = { warranty, price: parseFloat(prompt('Введіть ціну електроніки:') || '0') };
+            }
+            else if (typeChoice === 'clothes') {
+                const size = prompt('Введіть розмір одягу:') || 'One Size';
+                productData = { size, price: parseFloat(prompt('Введіть ціну одягу:') || '0') };
+            }
+            else {
+                alert('Невідомий тип продукту. Спробуйте ще раз.');
+                return;
+            }
+            const basePrice = parseFloat(prompt('Введіть базову ціну продукту:') || '0');
+            if (isNaN(basePrice) || basePrice <= 0) {
+                alert('Базова ціна невірна.');
+                return;
+            }
+            const saleChoice = (_b = prompt('Вкажіть чи є знижка на товар (yes / no)')) === null || _b === void 0 ? void 0 : _b.toLowerCase();
+            const status = { onSale: saleChoice === 'yes' };
+            const discountRate = 0.2;
+            const finalPrice = status.onSale ? basePrice * (1 - discountRate) : basePrice;
+            const shopProduct = Object.assign(Object.assign(Object.assign({}, productData), status), { basePrice,
+                finalPrice });
+            let output = `<h3>Інформація про продукт:</h3>`;
+            if ('author' in shopProduct)
+                output += `<p><b>Тип:</b> Book<br><b>Автор:</b> ${shopProduct.author}</p>`;
+            else if ('warranty' in shopProduct)
+                output += `<p><b>Тип:</b> Electronics<br><b>Гарантія:</b> ${shopProduct.warranty}</p>`;
+            else if ('size' in shopProduct)
+                output += `<p><b>Тип:</b> Clothes<br><b>Розмір:</b> ${shopProduct.size}</p>`;
+            output += `
+      <p><b>Статус:</b> ${shopProduct.onSale ? 'On Sale (зі знижкою)' : 'Regular Price'}</p>
+      <p><b>Базова ціна:</b> ${shopProduct.basePrice.toFixed(2)} грн</p>
+      ${shopProduct.onSale
+                ? `<p><b>Ціна зі знижкою:</b> ${shopProduct.finalPrice.toFixed(2)} грн (-20%)</p>`
+                : ''}
+    `;
+            document.write(`
+      <div>
+        ${output}
+        <div><a href="../components/lesson3.html">Повернутися до уроку</a></div>
+      </div>
+    `);
             //document.write(`<div>${}</div><div><a href="../components/lesson3.html">Повернутися до уроку</a></div>`)
         },
     },
-    //   {
-    //   id: '3.1_',
-    //   question: '',
-    //   checkFunction: function () {
-    //     //document.write(`<div>${}</div><div><a href="../components/lesson3.html">Повернутися до уроку</a></div>`)
-    //   },
-    // },
+    {
+        id: '3.1_5',
+        question: 'Задача 5.  У localStorage зберігається об’єкт у форматі JSON. Проаналізувати чи є цей об’єкт  типу Product{     title:string,     price:number }',
+        checkFunction: function () {
+            const titles = ['Ноутбук', 'Книга', 'Миша', 'Рюкзак', 'Планшет'];
+            const products = titles.map((title) => ({
+                title,
+                price: Math.floor(Math.random() * 5000) + 100,
+            }));
+            const randomProduct = products[Math.floor(Math.random() * products.length)];
+            localStorage.setItem('data', JSON.stringify(randomProduct));
+            const raw = localStorage.getItem('data');
+            const parsed = raw ? JSON.parse(raw) : null;
+            function isProduct(object) {
+                return object && typeof object.title === 'string' && typeof object.price === 'number';
+            }
+            let message = '';
+            if (isProduct(parsed)) {
+                message = `Об’єкт відповідає типу Product:
+        Назва: ${parsed.title}, Ціна ${parsed.price}`;
+            }
+            else {
+                message = 'Об’єкт не відповідає типу Product.';
+            }
+            console.log(message);
+            document.write(`
+      <div>
+        <h3>Перевірка об’єкта з localStorage</h3>
+        <pre>${JSON.stringify(parsed, null, 2)}</pre>
+        <p>${message}</p>
+        <a href="../components/lesson3.html">Повернутися до уроку</a>
+      </div>
+    `);
+            //document.write(`<div>${}</div><div><a href="../components/lesson3.html">Повернутися до уроку</a></div>`)
+        },
+    },
+    {
+        id: '3.1_6',
+        question: 'Задача 6. Описати тип квиток (куди, ціна, ПІБ пасажира, дата). Створити функції для перевірки цього типу (Type Guard, Assert) з інтерактивним введенням даних користувачем.',
+        checkFunction: function () {
+            function isTicket(obj) {
+                return (typeof obj === 'object' &&
+                    obj !== null &&
+                    'destination' in obj &&
+                    typeof obj.destination === 'string' &&
+                    'price' in obj &&
+                    typeof obj.price === 'number' &&
+                    'passengerName' in obj &&
+                    typeof obj.passengerName === 'string' &&
+                    'date' in obj &&
+                    typeof obj.date === 'string');
+            }
+            function assertTicket(obj) {
+                if (!isTicket(obj)) {
+                    throw new Error('Об’єкт не є дійсним квитком!');
+                }
+            }
+            const destination = prompt('Введіть пункт призначення:') || 'Невідомо';
+            const passengerName = prompt('Введіть ПІБ пасажира:') || 'Анонім';
+            const priceInput = prompt('Введіть ціну квитка:');
+            const date = prompt('Введіть дату (у форматі YYYY-MM-DD):') || 'Невказано';
+            const price = priceInput ? parseFloat(priceInput) : NaN;
+            const userTicket = {
+                destination,
+                passengerName,
+                price,
+                date,
+            };
+            localStorage.setItem('ticketData', JSON.stringify(userTicket));
+            const stored = localStorage.getItem('ticketData');
+            const parsed = stored ? JSON.parse(stored) : null;
+            let output = '<h3>Результат перевірки квитка</h3>';
+            if (isTicket(parsed)) {
+                console.log('Це дійсний квиток:', parsed);
+                output += `<p>Об’єкт є дійсним квитком.</p>`;
+            }
+            else {
+                console.log('Це не квиток');
+                output += `<p>Об’єкт не є дійсним квитком.</p>`;
+            }
+            try {
+                assertTicket(parsed);
+                output += `
+        <p><b>Пункт призначення:</b> ${parsed.destination}</p>
+        <p><b>Пасажир:</b> ${parsed.passengerName}</p>
+        <p><b>Дата:</b> ${parsed.date}</p>
+        <p><b>Ціна:</b> ${parsed.price} грн</p>
+      `;
+            }
+            catch (err) {
+                console.error(err.message);
+                output += `<p style="color:red;">${err.message}</p>`;
+            }
+            document.write(`
+      <div class="ticket-card">
+        ${output}
+        <div><a href="../components/lesson3.html">Повернутися до уроку</a></div>
+      </div>
+    `);
+        },
+    },
+    {
+        id: '3.1_7',
+        question: 'Задача 7. Описати тип «student journal» (3 поля-масиви з оцінки ). Потім на основі цього типу створити тип «менеджер оцінок» (додати методи знаходження середньої оцінки і найбільшої оцінки)',
+        checkFunction: function () {
+            function inputGrades(subject) {
+                const input = prompt(`Введіть оцінки для ${subject} через кому (наприклад 5, 4, 3):`) || '';
+                return input
+                    .split(', ')
+                    .map((s) => parseFloat(s.trim()))
+                    .filter((n) => !isNaN(n));
+            }
+            const journal = {
+                math: inputGrades('математика'),
+                physics: inputGrades('фізики'),
+                chemistry: inputGrades('хімія'),
+                getAverage() {
+                    const allGrades = [...this.math, ...this.physics, ...this.chemistry];
+                    const sum = allGrades.reduce((acc, val) => acc + val, 0);
+                    return allGrades.length > 0 ? sum / allGrades.length : 0;
+                },
+                getMax() {
+                    const allGrades = [...this.math, ...this.physics, ...this.chemistry];
+                    return allGrades.length > 0 ? Math.max(...allGrades) : 0;
+                },
+            };
+            let output = `<h3>Результати журналу</h3>
+      <p><b>Математика:</b> ${journal.math.join(', ')}</p>
+      <p><b>Фізика:</b> ${journal.physics.join(', ')}</p>
+      <p><b>Хімія:</b> ${journal.chemistry.join(', ')}</p>
+      <p><b>Середня оцінка:</b> ${journal.getAverage().toFixed(2)}</p>
+      <p><b>Найвища оцінка:</b> ${journal.getMax()}</p>
+    `;
+            console.log('Журнал:', journal);
+            document.write(`<div>${output}</div><div><a href="../components/lesson3.html">Повернутися до уроку</a></div>`);
+        },
+    },
     // ========================================================================================================================================
     {
         id: '3.2_1',

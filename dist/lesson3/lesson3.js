@@ -72,28 +72,31 @@ const questions = [
         id: '3.1_3',
         question: 'Задача 3. Задача “Calendar events”. Події можуть бути Meeting (має participants), Deadline (має dueDate), Reminder (має note). Кожна подія може бути mandatory або optional. Створити тип CalendarEvent, який об’єднує тип події та її важливість, використовуючи перетини та об’єднання типів.',
         checkFunction: function () {
-            var _a;
-            const eventType = (_a = prompt('Оберіть тип події: meeting / deadline / reminder')) === null || _a === void 0 ? void 0 : _a.toLowerCase();
-            let eventData;
-            if (eventType === 'meeting') {
-                const participants = prompt('Введіть учасників (через кому):') || 'Невідомо';
-                eventData = { participants };
+            function showEventInfo(event) {
+                switch (event.eventType) {
+                    case 'meeting':
+                        console.log(`Meeting with ${event.participants}. Importance: ${event.importance}`);
+                        break;
+                    case 'deadline':
+                        console.log(`Deadline: ${event.dueDate}. Importance: ${event.importance}`);
+                        break;
+                    case 'reminder':
+                        console.log(`Reminder: ${event.note}. Importance: ${event.importance}`);
+                        break;
+                    default:
+                        const exhaustive = event;
+                        throw new Error(`Unhandled event type: ${exhaustive}`);
+                }
             }
-            else if (eventType === 'deadline') {
-                const dueDate = prompt('Введіть кінцеву дату:') || 'Невідомо';
-                eventData = { dueDate };
+            function checkFunction() {
+                const events = [
+                    { eventType: 'meeting', participants: 'Team A', importance: 'mandatory' },
+                    { eventType: 'deadline', dueDate: '2025-10-30', importance: 'optional' },
+                    { eventType: 'reminder', note: 'Submit report', importance: 'mandatory' },
+                ];
+                events.forEach(showEventInfo);
             }
-            else if (eventType === 'reminder') {
-                const note = prompt('Bвеідть нотатку:') || 'Без нотатки';
-                eventData = { note };
-            }
-            else {
-                alert('Невідомий тип події. Спробуйте ще раз.');
-                return;
-            }
-            const importanceChoice = prompt('Подія є обовязковою? (yes / no)');
-            const importance = (importanceChoice === null || importanceChoice === void 0 ? void 0 : importanceChoice.toLowerCase()) === 'Yes' ? { mandatory: true } : { optional: true };
-            const calendarEvent = Object.assign(Object.assign({}, eventData), importance);
+            checkFunction();
             let output = `<h3>Створено подію:</h3>`;
             if ('participants' in calendarEvent)
                 output += `<p><b>Тип:</b> Meeting<br><b>Учасники:</b> ${calendarEvent.participants}</p>`;
